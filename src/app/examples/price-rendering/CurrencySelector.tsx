@@ -1,5 +1,5 @@
 'use client'
-import { Listbox } from '@headlessui/react'
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
 import clsx from 'clsx'
 import currencies from './currencies'
 
@@ -16,7 +16,7 @@ export default function CurrencySelector({
 }: CurrencySelectorProps) {
   return (
     <Listbox as="div" value={currency} onChange={onCurrencyChange} {...props}>
-      <Listbox.Button
+      <ListboxButton
         className="flex h-10 w-full items-center justify-center rounded-lg px-2 shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5 md:h-auto md:w-24"
         aria-label="Currency"
       >
@@ -35,10 +35,10 @@ export default function CurrencySelector({
           />
         </svg>
         <span className="py-1 pl-1 text-sm font-semibold">{currency}</span>
-      </Listbox.Button>
-      <Listbox.Options className="md:right-none absolute right-0 top-full mt-3 max-h-64 w-72  space-y-1 overflow-auto rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5 md:left-1/2 md:-translate-x-1/2">
+      </ListboxButton>
+      <ListboxOptions className="md:right-none absolute right-0 top-full mt-3 max-h-64 w-72  space-y-1 overflow-auto rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5 md:left-1/2 md:-translate-x-1/2">
         {currencies.sort().map(({ cc, symbol, name }) => (
-          <Listbox.Option
+          <ListboxOption
             key={cc}
             value={cc}
             className={({ active, selected }) =>
@@ -58,9 +58,9 @@ export default function CurrencySelector({
                 {name} ({symbol})
               </div>
             )}
-          </Listbox.Option>
+          </ListboxOption>
         ))}
-      </Listbox.Options>
+      </ListboxOptions>
     </Listbox>
   )
 }
