@@ -31,9 +31,9 @@ const fullIcons = {
 }
 
 const iconStyles = {
-  blue: '[--icon-foreground:theme(colors.slate.900)] [--icon-background:theme(colors.white)]',
+  blue: '[--icon-foreground:var(--color-slate-900)] [--icon-background:var(--color-white)]',
   amber:
-    '[--icon-foreground:theme(colors.amber.900)] [--icon-background:theme(colors.amber.100)]',
+    '[--icon-foreground:var(--color-amber-900)] [--icon-background:var(--color-amber-100)]',
 }
 
 export function Icon({
@@ -45,13 +45,14 @@ export function Icon({
   color?: keyof typeof iconStyles
   icon: keyof typeof icons | keyof typeof fullIcons
 } & Omit<React.ComponentPropsWithoutRef<'svg'>, 'color'>) {
+  let id = useId()
+
   if (icon in fullIcons) {
     let IconComponent = fullIcons[icon as keyof typeof fullIcons]
 
     return <IconComponent className={clsx(className, 'fill-blue-400')} />
   }
 
-  let id = useId()
   let IconComponent = icons[icon as keyof typeof icons]
 
   return (

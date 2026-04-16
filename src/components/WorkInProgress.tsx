@@ -56,7 +56,7 @@ export default function WorkInProgress() {
                 />
                 <button
                   onClick={subscribe}
-                  className="dark:highlight-white/20flex w-full items-center justify-center rounded-lg bg-slate-900 px-6 py-1 font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-sky-500 dark:hover:bg-sky-400 sm:w-auto"
+                  className="dark:highlight-white/20flex w-full items-center justify-center rounded-lg bg-slate-900 px-6 py-1 font-semibold text-white hover:bg-slate-700 focus:outline-hidden focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-sky-500 dark:hover:bg-sky-400 sm:w-auto"
                 >
                   {isLoading ? 'Sending...' : 'Subscribe'}
                 </button>
@@ -72,7 +72,7 @@ export default function WorkInProgress() {
           ) : (
             <button
               onClick={() => setIsSubscribing(true)}
-              className="dark:highlight-white/20flex w-full items-center justify-center rounded-lg bg-slate-900 px-6 py-1 font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-sky-500 dark:hover:bg-sky-400 sm:w-auto"
+              className="dark:highlight-white/20flex w-full items-center justify-center rounded-lg bg-slate-900 px-6 py-1 font-semibold text-white hover:bg-slate-700 focus:outline-hidden focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-sky-500 dark:hover:bg-sky-400 sm:w-auto"
             >
               Subscribe to updates
             </button>
