@@ -44,7 +44,7 @@ export default function RootLayout({ children }: Props) {
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_TAG_ID}`}
         />
-        <Script>
+        <Script id="hotjar-analytics">
           {`
             (function(h,o,t,j,a,r){
               h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};

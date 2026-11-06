@@ -1,5 +1,5 @@
 'use client'
-import { Listbox } from '@headlessui/react'
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
 import clsx from 'clsx'
 import locales from './locales'
 
@@ -16,7 +16,7 @@ export default function LocaleSelector({
 }: LocaleSelectorProps) {
   return (
     <Listbox as="div" value={locale} onChange={onLocaleChange} {...props}>
-      <Listbox.Button
+      <ListboxButton
         className="flex h-10 w-full items-center justify-center rounded-lg px-2 shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5 md:h-auto md:w-24"
         aria-label="Locale"
       >
@@ -35,10 +35,10 @@ export default function LocaleSelector({
           />
         </svg>
         <span className="py-1 pl-1 text-sm font-semibold">{locale}</span>
-      </Listbox.Button>
-      <Listbox.Options className="absolute left-0 top-full mt-3 max-h-64 w-64 space-y-1 overflow-auto rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5">
+      </ListboxButton>
+      <ListboxOptions className="absolute left-0 top-full mt-3 max-h-64 w-64 space-y-1 overflow-auto rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5">
         {Object.entries(locales).map(([value, labels]) => (
-          <Listbox.Option
+          <ListboxOption
             key={value}
             value={value}
             className={({ active, selected }) =>
@@ -58,9 +58,9 @@ export default function LocaleSelector({
                 {labels[1]} ({value})
               </div>
             )}
-          </Listbox.Option>
+          </ListboxOption>
         ))}
-      </Listbox.Options>
+      </ListboxOptions>
     </Listbox>
   )
 }

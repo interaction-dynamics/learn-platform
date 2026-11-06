@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { Listbox } from '@headlessui/react'
+import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/react'
 import clsx from 'clsx'
 
 const themes = [
@@ -61,8 +61,8 @@ export function ThemeSelector(
 
   return (
     <Listbox as="div" value={theme} onChange={setTheme} {...props}>
-      <Listbox.Label className="sr-only">Theme</Listbox.Label>
-      <Listbox.Button
+      <ListboxLabel className="sr-only">Theme</ListboxLabel>
+      <ListboxButton
         className="flex h-6 w-6 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5"
         aria-label="Theme"
       >
@@ -78,10 +78,10 @@ export function ThemeSelector(
             theme === 'system' ? 'fill-slate-400' : 'fill-sky-400',
           )}
         />
-      </Listbox.Button>
-      <Listbox.Options className="absolute left-1/2 top-full mt-3 w-36 -translate-x-1/2 space-y-1 rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5">
+      </ListboxButton>
+      <ListboxOptions className="absolute left-1/2 top-full mt-3 w-36 -translate-x-1/2 space-y-1 rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5">
         {themes.map((theme) => (
-          <Listbox.Option
+          <ListboxOption
             key={theme.value}
             value={theme.value}
             className={({ active, selected }) =>
@@ -98,7 +98,7 @@ export function ThemeSelector(
           >
             {({ selected }) => (
               <>
-                <div className="rounded-md bg-white p-1 shadow ring-1 ring-slate-900/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
+                <div className="rounded-md bg-white p-1 shadow-sm ring-1 ring-slate-900/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
                   <theme.icon
                     className={clsx(
                       'h-4 w-4',
@@ -111,9 +111,9 @@ export function ThemeSelector(
                 <div className="ml-3">{theme.name}</div>
               </>
             )}
-          </Listbox.Option>
+          </ListboxOption>
         ))}
-      </Listbox.Options>
+      </ListboxOptions>
     </Listbox>
   )
 }
